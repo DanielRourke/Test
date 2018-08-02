@@ -62,17 +62,53 @@ int main(){
     string result;
     do
     {
+      //  cin.ignore(0);
+        // cout << "Enter a number to search for: ";
+        // cin >> target;
+
+        // while (cin.fail())
+        // {
+
+        //     cin >> target;
+        //     if (!cin)
+        //     {
+        //         cout << "That wasnt a number. Now Its Broken!" << endl;
+        //         cout << "Enter a number to search for: ";
+        //         cin >> target;
+        //     }
+        // }
+       
+        // do
+        // {
+        //     if ( !(cin >> target) )
+        //     {
+        //         cin.clear();
+        //         cin.ignore(1);
+        //         //cin >> target;
+        //     }
+
+        //     if (cin >> target)
+        //     {
+        //         cin.ignore(0);
+        //         cout << "Enter a number to search for: ";
+        //     }
+
+        // }while (cin.fail());
         cout << "Enter a number to search for: ";
-        cin >> target;
-        if (cin.fail())
+        while ( !(cin >> target) )
         {
-           cout << "That wasnt a number. Now Its Broken!" << endl;
+         
             cin.clear();
-            string gnor = to_string(target);
-            cin.ignore(gnor.length());
-            cout << endl;
+            cin.ignore(1000, '\n');
+            cout << "Enter a number to search for: ";
+           // cin >> target;
+
+
         }
-        else
+    // cin.ignore(0);
+        
+  
+        
             result = search(arr, listSize, target);       
         
         if (result == "")
@@ -84,7 +120,7 @@ int main(){
 
         cout << "Search again?(y/n followed by return): ";
         cin >> ans;
-        cin.ignore(0);
+       
     }while ((ans == 'y') || (ans == 'Y'));
 
     cout << "End of program.\n";
