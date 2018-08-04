@@ -74,21 +74,26 @@ int main()
 {
    
     bool emptySeat[8][4];
-  //  avilableSeats = 32
-  //  int passengers = 0;
+    int avilableSeats = 32, passengers;
     intitialiseArray(emptySeat);
-    char ans  = 'y';
-
-
-    for (int avilableSeats = 32; avilableSeats > 0; avilableSeats--)
+    char ans;
+    do
     {
-        displayAllocation(emptySeat);
-        getSeatAllocation(emptySeat);
-        cout <<" Empty Seats remain do you wish to allocate another seat ? ( y / n) ";
+
+        cout << "How many Passengers booking ? " ;
+        cin >> passengers;
+
+        for (int i = 0; i < passengers; i++)
+        {
+            displayAllocation(emptySeat);
+            getSeatAllocation(emptySeat);
+            avilableSeats--;
+        }
+        cout << "Do you wish to make another booking ? ( y / n) ";
         cin >> ans;
-        if (ans == 'n' || ans == 'N')
-            break;
-    }
+
+    } while ((ans != 'n' && ans != 'N') && avilableSeats > 0);
+
     cout << "Allocation Complete" << endl;
     return 0;
 }
