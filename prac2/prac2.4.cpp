@@ -1,22 +1,29 @@
 #include <iostream>
-#include <iomanip>
 #include <string>
+#include <istream>
+#include <iomanip>
 
 using namespace std;
+
 
 
 int getSeatAllocation(bool emptySeat[8][4])
 {
     bool allocated = false;
+    char inpRow, inpCol;
     int row = 0 , col = 0;
     while (!allocated)
     {
-            cout << "Which seat would you reserve? :" << endl;
-            cout <<  "Row  :   " ;
-            cin >> row;
-            cout << "Column:  " ;
-            cin >> col;
-            //if ( (row > 0) && (row < 9) && (col > 0) && (col > 5 ) &&  )
+            cout << "Which seat would you reserve? (row : column) : ";
+            cin >> row >> col;
+            if (cin.fail())
+            {
+                row = 0;
+                col = 0;
+                cin.clear();
+                cin.ignore(1000, '\n');
+            }
+
             if ( row > 0 && row < 9 && col > 0 && col < 9)
             {
                 if((emptySeat[row -1][col -1]))
@@ -70,6 +77,7 @@ void intitialiseArray(bool emptySeat[8][4])
         } 
     }
 }
+
 int main()
 {
    
@@ -82,7 +90,13 @@ int main()
 
         cout << "How many Passengers booking ? " ;
         cin >> passengers;
-
+        if (cin.fail())
+        {
+            cout << "invaild input" << endl;
+            passengers = 0;
+            cin.clear();
+            cin.ignore(1000 , '\n');
+        }
         for (int i = 0; i < passengers; i++)
         {
             displayAllocation(emptySeat);
