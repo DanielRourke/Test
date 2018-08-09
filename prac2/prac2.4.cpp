@@ -24,7 +24,7 @@ int getSeatAllocation(bool emptySeat[8][4])
                 cin.ignore(1000, '\n');
             }
 
-            if ( row > 0 && row < 9 && col > 0 && col < 9)
+            if ( row > 0 && row < 9 && col > 0 && col < 5)
             {
                 if((emptySeat[row -1][col -1]))
                 {

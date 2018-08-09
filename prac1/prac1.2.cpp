@@ -16,6 +16,9 @@ void doStuff(int parValue, int& parRef)
 int main()
 {
     int n1 = 1, n2 =2;
+    cout << "n1 = " << n1 << ". n2 = " << n2 << endl;
+    cout << "then we do Stuff and...." << endl;
+
     //parse doStuff two intergers. pass n1 by Value and n2 by reference
     doStuff(n1, n2);
 

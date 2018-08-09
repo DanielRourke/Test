@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <math.h>
@@ -70,17 +71,19 @@ int outputFirstTen(int first, int second)
 //squares all the odd numbers
 int outputSqrOdd(int first, int second)
 {
-    cout << "f) The square of the odds : ";
-
+    cout << "f)i) The square of the odds : ";
+    int dblcount = 0;
     for( int i = first + 1; i < second; i++)
     {
         if (i % 2 != 0)
         {
+            dblcount = dblcount + pow(i,2);
+
              cout << pow(i,2) << ", " ;
         }
     }
     cout << endl;
-  
+    cout << "f)ii) Sum of the Squares: " << dblcount << endl;
     return 0;
 }
  

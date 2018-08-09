@@ -9,6 +9,5 @@ int main()
     cout << "Please enter your name: " ;
     cin >> name;
     cout <<  "Greetings " << name << "!!!" << endl;
-
     return 0;
 }
