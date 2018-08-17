@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
@@ -10,8 +11,18 @@ int main()
     //takes to intergers
     cin >> month;
     cin >> day;
+    
+    if ( (month < 12 && month > 0) && ( day < 31 && day > 0 ) )
+    {
+        srand(month*day);
+    }
+    else
+    {
+        srand(time(0));
+      //  cout << time(0) ;
+    }
     //Uses intergers to seed random
-    srand(month*day);
+
     int prediction;
     char ans;
     cout << "Weather for today:\n";
