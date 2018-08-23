@@ -36,10 +36,16 @@ int main() {
 	 }
 
 	cout << "There are " << sumOfZeros << " is this table" << endl;
-	cout << "Please enter your Co-ords:" ;
-	cin >> row >> column;
+	do
+	{	
+		cout << "Please enter your Co-ords:" ;
+		cin >> row >> column;
+	}
+	while (row > ROWS -1 || column > COLS -1 || row < 0 || column < 0);
 
-	for (int i = 0; i < ROWS; i ++)  {
+
+	for (int i = 0; i < ROWS; i ++)  
+	{
 		for (int j = 0; j < COLS; j++)
 		{
 			if ( ( (j == column - 1 || j == column + 1 ) && (i == row) ) || ( (j == column) && (i == row - 1 || i == row + 1 ) ) )
@@ -54,8 +60,5 @@ int main() {
 	
 		cout << endl;
 	 }
-
-
-
 	return 0;
 }
